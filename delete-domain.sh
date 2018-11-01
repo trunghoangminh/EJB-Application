@@ -8,7 +8,7 @@ DOMAIN_STATUS=$($GF_HOME/$ASASMIN list-domains | grep -w "$DOMAIN_NAME running")
 
 # Stop glassfish before remove domain
 stopGlassfish(){
-    $GF_HOME/$ASASMIN list-domains | grep -w "$DOMAIN_NAME running"
+    result=$($GF_HOME/$ASASMIN list-domains | grep -w "$DOMAIN_NAME running")
     if [ $? == 0 ];
     then
         ./stop-domain.sh
@@ -17,7 +17,7 @@ stopGlassfish(){
 
 # Check domain name is existed or not
 checkDomainExisted(){
-    $GF_HOME/$ASASMIN list-domains | grep -w $DOMAIN_NAME
+    result=$($GF_HOME/$ASASMIN list-domains | grep -w $DOMAIN_NAME)
     return $?
 }
 
@@ -33,4 +33,3 @@ deleteGlassfishDomain(){
 }
 
 deleteGlassfishDomain
-#checkDomainExisted

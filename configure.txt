@@ -1,0 +1,5 @@
+# start domain first
+start-domain trunghoang
+
+# Enable secure admin for remote access
+#enable-secure-admin
