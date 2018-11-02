@@ -2,7 +2,8 @@
 GF_HOME=/home/hmtrung/test/EMSworkspace/glassfish5
 ASASMIN=bin/asadmin
 DOMAIN_NAME=trunghoang
-ADMIN_PORT=10000
+ADMIN_PORT=4848
+HTTP_PORT=8080
 DOMAIN_ADMIN_USER=trunghoang
 PASSWORD_FILE=password.txt
 
@@ -22,7 +23,7 @@ configureDomain(){
 createGlassfishDomain(){
     if ! checkDomainExisted ;
     then
-        $GF_CMD create-domain --adminport $ADMIN_PORT --domaindir $GF_HOME/glassfish/domains $DOMAIN_NAME
+        $GF_CMD create-domain --adminport $ADMIN_PORT --instanceport $HTTP_PORT --domaindir $GF_HOME/glassfish/domains $DOMAIN_NAME
         configureDomain
     else
         echo "Domain $DOMAIN_NAME is existed. Please check again!"
